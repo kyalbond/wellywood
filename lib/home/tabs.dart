@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellywood/home/dashboard.dart';
 
 class Tabs extends StatelessWidget {
   @override
@@ -9,16 +10,16 @@ class Tabs extends StatelessWidget {
         child: Scaffold(
           bottomNavigationBar: new TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
+              Tab(icon: Icon(Icons.home)),
+              Tab(icon: Icon(Icons.trending_up)),
             ],
             labelColor: Colors.black,
             indicatorColor: Colors.purple,
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
+              Dashboard(),
+              Dashboard(),
             ],
           ),
         ),

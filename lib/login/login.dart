@@ -1,10 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wellywood/home/home.dart';
 
 class LoginPage extends StatefulWidget {
-static const String routeName = '/';
-
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
