@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:wellywood/home/home.dart';
 
 class LoginPage extends StatefulWidget {
+static const String routeName = '/';
+
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -56,15 +58,11 @@ class _LoginPageState extends State<LoginPage> {
     if (formState.validate()) {
       formState.save();
       try {
-        await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(
-            (context), MaterialPageRoute(builder: (context) => Home()));
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.pushNamed(context, '/home');
       } catch (e) {
         print(e.message);
       }
-    } else {
-      print('fail');
     }
   }
 }

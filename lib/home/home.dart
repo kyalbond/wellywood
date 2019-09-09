@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wellywood/account_settings/settings.dart';
 import 'package:wellywood/help/help.dart';
@@ -33,26 +34,27 @@ class _HomeState extends State<Home> {
               ListTile(
                 title: Text('Settings'),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Settings()));
+                  Navigator.pushNamed(context, '/settings');
                 },
               ),
               ListTile(
                 title: Text('Help'),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Help()));
+                  Navigator.pushNamed(context, '/help');
                 },
               ),
-              ListTile(
-                title: Text('Logout'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
+              ListTile(title: Text('Logout'), onTap: _signOut),
             ],
           ),
         ));
+  }
+
+  Future<void> _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      print('Failed to logout');
+    }
+    Navigator.pushNamedAndRemoveUntil(context, '/', (Route<dynamic> route) => false);
   }
 }
