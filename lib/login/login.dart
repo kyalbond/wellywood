@@ -25,8 +25,8 @@ class _LoginPageState extends State<LoginPage> {
                 validator: (input) {
                   if (input.isEmpty) {
                     return 'Please provide an email';
-                  }
-                  return '';
+                  } 
+                  return null;
                 },
                 onSaved: (input) => _email = input,
                 decoration: InputDecoration(labelText: 'Email'),
@@ -35,8 +35,8 @@ class _LoginPageState extends State<LoginPage> {
                 validator: (input) {
                   if (input.length < 7) {
                     return 'Your password needs to be atleast 8 characters';
-                  }
-                  return '';
+                  } 
+                  return null;
                 },
                 onSaved: (input) => _password = input,
                 decoration: InputDecoration(labelText: 'Password'),
