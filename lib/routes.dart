@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wellywood/help/help.dart';
-import 'package:wellywood/login/login.dart';
-import 'settings/settings.dart';
-import 'home/home.dart';
+import 'package:wellywood/pages/help/help.dart';
+import 'package:wellywood/pages/login/login.dart';
+import 'package:wellywood/pages/settings/settings.dart';
+import 'package:wellywood/pages/home/home.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

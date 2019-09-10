@@ -7,7 +7,5 @@ class Post {
   List<User> likes;
   DateTime date;
 
-
-
   Post(this.image, this.user, this.date, this.likes);
 }

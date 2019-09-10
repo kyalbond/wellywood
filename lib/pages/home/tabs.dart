@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wellywood/home/dashboard.dart';
+import 'package:wellywood/pages/home/dashboard.dart';
 
 class Tabs extends StatelessWidget {
   @override
@@ -20,8 +20,8 @@ class Tabs extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              Dashboard(),
-              Icon(Icons.trending_up),
+              Dashboard('date'),
+              Dashboard('likes'),
             ],
           ),
         ),

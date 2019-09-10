@@ -6,6 +6,4 @@ class User {
   String userIcon;
 
   User(this.username, this.userIcon);
-
-  
 }

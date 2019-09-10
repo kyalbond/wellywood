@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wellywood/home/sidemenu.dart';
-import 'package:wellywood/home/tabs.dart';
+import 'package:wellywood/pages/home/sidemenu.dart';
+import 'package:wellywood/pages/home/tabs.dart';
 
 class Home extends StatefulWidget {
   @override
