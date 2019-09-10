@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wellywood/help/help.dart';
 import 'package:wellywood/login/login.dart';
-import 'account_settings/settings.dart';
+import 'settings/settings.dart';
 import 'home/home.dart';
 
 class RouteGenerator {

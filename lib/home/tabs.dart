@@ -8,18 +8,20 @@ class Tabs extends StatelessWidget {
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
-          bottomNavigationBar: new TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.trending_up)),
-            ],
-            labelColor: Colors.black,
-            indicatorColor: Colors.purple,
+          bottomNavigationBar: Container(
+            child: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.trending_up)),
+              ],
+              labelColor: Colors.blue,
+              unselectedLabelColor: Colors.black,
+            ),
           ),
           body: TabBarView(
-            children: [
+            children: <Widget>[
               Dashboard(),
-              Dashboard(),
+              Icon(Icons.trending_up),
             ],
           ),
         ),

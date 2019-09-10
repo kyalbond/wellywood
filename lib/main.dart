@@ -7,7 +7,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Wellywood',
       initialRoute: '/',
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+        accentColor: Colors.yellowAccent 
+        ),
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

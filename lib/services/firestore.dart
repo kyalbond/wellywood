@@ -1,13 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:wellywood/services/firestore.dart';
+import 'package:wellywood/models/user.dart';
 
-class Dashboard extends StatefulWidget {
-  @override
-  _DashboardState createState() => _DashboardState();
+class Database {
+  
+  User getUser(uid) {
+    try {
+      Firestore.instance
+          .collection("users")
+          .document(uid)
+          .get()
+          .then((DocumentSnapshot ds) {
+        return new User(ds.data['username'], ds.data['userIcon']);
+      });
+    } catch (e) {
+      print('Failed to get user: ' + e);
+    }
+    return null;
+  }
+
 }
 
-class _DashboardState extends State<Dashboard> {
+class GetPosts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -22,7 +36,7 @@ class _DashboardState extends State<Dashboard> {
               children: snapshot.data.documents.map((DocumentSnapshot document) {
                 return new ListTile(
                   title: new Text(document['user']),
-                  subtitle: new Text(document['likes'].toString()),
+                  subtitle: new Text(document['likes']),
                 );
               }).toList(),
             );
@@ -30,5 +44,4 @@ class _DashboardState extends State<Dashboard> {
       },
     );
   }
-
 }
