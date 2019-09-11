@@ -17,48 +17,57 @@ class _SignUpState extends State<SignUp> {
         appBar: AppBar(
           title: Text('Sign Up'),
         ),
-        body: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Please provide an email';
-                  }
-                  return null;
-                },
-                onSaved: (input) => _email = input,
-                decoration: InputDecoration(labelText: 'Email'),
-              ),
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Please provide a username';
-                  }
-                  return null;
-                },
-                onSaved: (input) => _username = input,
-                decoration: InputDecoration(labelText: 'Display Name'),
-              ),
-              TextFormField(
-                validator: (input) {
-                  if (input.length < 8) {
-                    return 'Your password needs to be atleast 8 characters';
-                  }
-                  return null;
-                },
-                onSaved: (input) => _password = input,
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-              ),
-              RaisedButton(
-                onPressed: signUp,
-                child: Text('Submit'),
-              )
-            ],
+        body: Column(children: <Widget>[
+          Container(
+            child: Image.asset('assets/logo.png'),
+            padding: EdgeInsets.all(40),
           ),
-        ));
+          Form(
+            key: _formKey,
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Please provide an email';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) => _email = input,
+                  decoration: InputDecoration(labelText: 'Email'),
+                ),
+                TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Please provide a username';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) => _username = input,
+                  decoration: InputDecoration(labelText: 'Display Name'),
+                ),
+                TextFormField(
+                  validator: (input) {
+                    if (input.length < 8) {
+                      return 'Your password needs to be atleast 8 characters';
+                    }
+                    return null;
+                  },
+                  onSaved: (input) => _password = input,
+                  decoration: InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                ),
+                RaisedButton(
+                  onPressed: signUp,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(5.0)),
+                  child: Text('Submit'),
+                  color: Color.fromRGBO(254, 218, 0, 1),
+                )
+              ],
+            ),
+          )
+        ]));
   }
 
   Future<void> signUp() async {

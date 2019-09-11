@@ -18,41 +18,58 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(
           title: Text('Wellywood'),
         ),
-        body: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                validator: (input) {
-                  if (input.isEmpty) {
-                    return 'Please provide an email';
-                  } 
-                  return null;
-                },
-                onSaved: (input) => _email = input,
-                decoration: InputDecoration(labelText: 'Email'),
+        body: Column(
+          children: <Widget>[
+            Container(
+              child: Image.asset('assets/logo.png'),
+              padding: EdgeInsets.all(40),
+            ),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please provide an email';
+                      }
+                      return null;
+                    },
+                    onSaved: (input) => _email = input,
+                    decoration: InputDecoration(labelText: 'Email'),
+                  ),
+                  TextFormField(
+                    validator: (input) {
+                      if (input.length < 7) {
+                        return 'Your password needs to be atleast 8 characters';
+                      }
+                      return null;
+                    },
+                    onSaved: (input) => _password = input,
+                    decoration: InputDecoration(labelText: 'Password'),
+                    obscureText: true,
+                  ),
+                  RaisedButton(
+                    onPressed: signIn,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(5.0)),
+                    child: Text('Login'),
+                    color: Color.fromRGBO(254, 218, 0, 1),
+                  ),
+                  RaisedButton(
+                    onPressed: signUp,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                      side: BorderSide(
+                          color: Color.fromRGBO(254, 218, 0, 1), width: 3),
+                    ),
+                    color: Colors.white,
+                    child: Text('Sign Up'),
+                  )
+                ],
               ),
-              TextFormField(
-                validator: (input) {
-                  if (input.length < 7) {
-                    return 'Your password needs to be atleast 8 characters';
-                  } 
-                  return null;
-                },
-                onSaved: (input) => _password = input,
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-              ),
-              RaisedButton(
-                onPressed: signIn,
-                child: Text('Login'),
-              ),
-              RaisedButton(
-                onPressed: signUp,
-                child: Text('Sign Up'),
-              )
-            ],
-          ),
+            )
+          ],
         ));
   }
 
@@ -61,8 +78,10 @@ class _LoginPageState extends State<LoginPage> {
     if (formState.validate()) {
       formState.save();
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Home()));
       } catch (e) {
         print(e.message);
       }

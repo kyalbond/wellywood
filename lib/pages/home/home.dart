@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
                   Tab(icon: Icon(Icons.trending_up)),
                 ],
                 labelColor: Colors.black,
-                indicatorColor: Colors.black,
+                indicatorColor: Color.fromRGBO(254, 218, 0, 1),
                 unselectedLabelColor: Colors.black45,
               ),
             ),
@@ -52,6 +52,8 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: takePhoto, //goToCamera,
         child: Icon(Icons.camera_alt),
+        backgroundColor: Color.fromRGBO(254, 218, 0, 1),
+        foregroundColor: Colors.black,
       ),
     );
   }
@@ -92,7 +94,7 @@ class _HomeState extends State<Home> {
                         .split('.')[0]),
                     trailing: CircleAvatar(
                         child: Text(document['user'].toString()[0], textScaleFactor: 1.5),
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Color.fromRGBO(254, 218, 0, 1),
                         foregroundColor: Colors.black,
                   
                   )

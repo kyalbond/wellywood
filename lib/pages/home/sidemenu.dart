@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wellywood/services/database.dart';
 
 class SideMenu extends StatefulWidget {
   @override
@@ -18,7 +17,7 @@ class _SideMenuState extends State<SideMenu> {
           DrawerHeader(
             child: Text('WellyWood'),
             decoration: BoxDecoration(
-              color: Colors.yellow,
+              color: Color.fromRGBO(254, 218, 0, 1),
             ),
           ),
           ListTile(
