@@ -18,7 +18,7 @@ class _SideMenuState extends State<SideMenu> {
           DrawerHeader(
             child: Text('WellyWood'),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.yellow,
             ),
           ),
           ListTile(
