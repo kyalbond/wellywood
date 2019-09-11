@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wellywood/routes.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Wellywood());
 
-class MyApp extends StatelessWidget {
+class Wellywood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

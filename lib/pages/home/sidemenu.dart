@@ -17,7 +17,6 @@ class _SideMenuState extends State<SideMenu> {
         children: <Widget>[
           DrawerHeader(
             child: Text('WellyWood'),
-            
             decoration: BoxDecoration(
               color: Colors.blue,
             ),

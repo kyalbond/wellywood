@@ -10,6 +10,9 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="wellywood"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBt0qJg1YnZyk6sTazhOBMvakL8T4_FGts" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -23,9 +26,7 @@
                  defined in @style/LaunchTheme).
                 android:name="com.google.android.geo.API_KEY"
                    -->
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyBt0qJg1YnZyk6sTazhOBMvakL8T4_FGts" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
